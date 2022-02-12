@@ -1,0 +1,70 @@
+.container {
+    font-size: 16px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+            position: relative;
+}
+
+.content {
+  display: flex;
+  gap: 5px;
+  border: 1px solid lightgray;
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: calc(100% - 40px);
+  flex-wrap: wrap;
+}
+
+.chip {
+  border-radius: 5px;
+  background: #d3d3d370;
+  padding: 5px 15px;
+  position: relative;
+  padding-right: 30px;
+}
+
+.close {
+  transform: rotate(45deg);
+  font-size: 28px;
+  position: absolute;
+  right: 5px;
+  top: -4px;
+  cursor: pointer;
+}
+
+.input {
+  outline: none;
+  border: none;
+  background: transparent;
+  caret-color: grey;
+  font-size: inherit;
+  padding: 5px;
+}
+
+.dropdown{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 5px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    position: absolute;
+    z-index: 2;
+}
+
+.dropdownItem{
+    padding: 10px;
+    cursor: pointer;
+
+}
+
+.dropdownItem:hover{
+    background: #d3d3d370;
+}
