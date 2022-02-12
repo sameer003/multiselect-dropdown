@@ -1,0 +1,17 @@
+.chip {
+    border-radius: 5px;
+    background: #d3d3d370;
+    padding: 5px 15px;
+    position: relative;
+    padding-right: 30px;
+    cursor: default;
+  }
+  
+  .close {
+    transform: rotate(45deg);
+    font-size: 28px;
+    position: absolute;
+    right: 5px;
+    top: -4px;
+    cursor: pointer;
+  }

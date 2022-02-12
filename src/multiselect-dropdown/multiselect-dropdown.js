@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./multiselect-dropdown.module.css";
+import Chip from "./chip/chip";
+import ListItem from "./list-item/list-item";
 
 const sortList = (list, sortOn) => {
   return list.sort((a, b) => (a[sortOn] > b[sortOn] ? 1 : -1));
@@ -65,14 +67,14 @@ const MultiselectDropdown = ({
 
   useEffect(() => {
     // hide dropdown if clicked outside from input/dropdown
-    function handleClickOutside(event) {
+    const handleClickOutside = (event) => {
       if (inputRef.current && !inputRef.current.contains(event.target)) {
         if (dropdownRef.current && dropdownRef.current.contains(event.target)) {
           return;
         }
         setShowDropdown(false);
       }
-    }
+    };
     // listener to mousedown
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -87,7 +89,7 @@ const MultiselectDropdown = ({
   };
 
   // Show items which are not selected
-  // Plus filter item if search is greater than 3 characters
+  // Plus filter item if search is greater than or equals minimumSearchLength
   const filterListItem = (item, text) => {
     if (selectedItems.find((value) => value === item[valueKey])) {
       return false;
@@ -98,23 +100,19 @@ const MultiselectDropdown = ({
     return item[displayKey].toLowerCase().indexOf(text.toLowerCase()) > -1;
   };
 
-  // Get Display name for showing selected item
-  const getDisplayName = (value) => {
-    const item = list.find((item) => item[valueKey] === value);
-    return item ? item[displayKey] : value;
-  };
-
   return (
     <div className={styles.container} style={{ width }}>
-      <div className={styles.content}>
+      <div className={styles.content} onClick={() => {inputRef.current.focus()}}>
         {selectedItems.map((item) => {
           return (
-            <div key={item} className={styles.chip}>
-              {getDisplayName(item)}
-              <div onClick={() => onDeSelect(item)} className={styles.close}>
-                +
-              </div>
-            </div>
+            <Chip
+              key={item}
+              item={item}
+              onDeSelect={onDeSelect}
+              list={list}
+              valueKey={valueKey}
+              displayKey={displayKey}
+            />
           );
         })}
 
@@ -133,13 +131,12 @@ const MultiselectDropdown = ({
             .filter((item) => filterListItem(item, search))
             .map((item) => {
               return (
-                <div
+                <ListItem
                   key={item[displayKey]}
-                  className={styles.dropdownItem}
-                  onClick={() => setSelected(item)}
-                >
-                  {item[displayKey]}
-                </div>
+                  item={item}
+                  displayKey={displayKey}
+                  setSelected={setSelected}
+                />
               );
             })}
         </div>

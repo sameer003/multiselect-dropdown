@@ -18,23 +18,7 @@
   border-radius: 10px;
   width: calc(100% - 40px);
   flex-wrap: wrap;
-}
-
-.chip {
-  border-radius: 5px;
-  background: #d3d3d370;
-  padding: 5px 15px;
-  position: relative;
-  padding-right: 30px;
-}
-
-.close {
-  transform: rotate(45deg);
-  font-size: 28px;
-  position: absolute;
-  right: 5px;
-  top: -4px;
-  cursor: pointer;
+  cursor: text;
 }
 
 .input {
@@ -44,6 +28,7 @@
   caret-color: grey;
   font-size: inherit;
   padding: 5px;
+  max-width: 100%;
 }
 
 .dropdown{
@@ -57,14 +42,4 @@
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     position: absolute;
     z-index: 2;
-}
-
-.dropdownItem{
-    padding: 10px;
-    cursor: pointer;
-
-}
-
-.dropdownItem:hover{
-    background: #d3d3d370;
 }
