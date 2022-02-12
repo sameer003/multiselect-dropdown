@@ -31,13 +31,13 @@ function App() {
     <div className="App">
       <h3>Example 1: Basic</h3>
       <MultiselectDropdown
-        width="350px" 
+        width="500px" 
         options={options} 
         minimumSearchLength={1}
       />
       <h3>Example 2: Pre-Selected with Minimun 3 seatch characters</h3>
       <MultiselectDropdown
-        width="400px" // with of dropdown
+        width="600px" // with of dropdown
         options={options} // Options for the dropdown
         selectedValues={selectedValues} // Pre-selected value to show in selected
         onSelect={onSelect} // Function will fire on select event
