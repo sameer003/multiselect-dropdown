@@ -22,7 +22,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
         options={options} // Options for the dropdown
         selectedValues={selectedValues} // Pre-selected value to show in selected
         onSelect={onSelect} // Function to fire on select event
-        onRemove={onRemove} // Function wtoill fire on remove event
+        onRemove={onRemove} // Function to fire on remove event
         displayKey="name" //Property to display
         valueKey="name" //Property to use as a value
         searchPlaceholder="+Add Item" // Search Placeholder
